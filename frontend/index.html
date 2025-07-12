@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="./scripts.js"></script>
+</head>
+
+<body>
+
+    <div id="top-controls">
+        <button id="conect" onclick="connect()">
+            <label id="account" style="cursor: pointer;">Connect</label>
+        </button>
+
+        <input id="mintAmountA" type="number" placeholder="Cantidad A" disabled>
+        <button id="mintButtonA" onclick="mintTokenA()" disabled>Mint Token A</button>
+
+        <input id="mintAmountB" type="number" placeholder="Cantidad B" disabled>
+        <button id="mintButtonB" onclick="mintTokenB()" disabled>Mint Token B</button>
+    </div>
+
+    <div id='swap-box'>
+        <div id="swap-menu">
+            <label class="token">Token A</label>to<label class="token">Token B</label>
+        </div>
+
+        <div id="swap-title-box">
+            <p id="swap-title">SimpleSwap</p>
+        </div>
+
+        <div id="swap-form-box">
+            <div id='form'>
+
+                <label>
+                    <label class="token">TKA</label>
+                    <div class="swap-balance pick-balance">Balance: <label class="balance" id="balanceA">0</label></div>
+                </label>
+
+                <input onInput='setValueTokenToSpend(); updateSwapButton();' type="text" class="IHAVE"
+                    placeholder="0.0"></input>
+
+                <br>
+
+                <label>
+                    <label class="token">TKB</label>
+                    <div class="swap-balance">Balance: <label class="balance" id="balanceB">0</label></div>
+                </label>
+
+                <input type="text" class="IWANT" placeholder="0.0"></input>
+
+                <div class="separador-vertical"></div>
+
+                <label id="swap-price-word">Price
+                    <div id="swap-price">
+                        TOKEN A PRICE: <label class="precio" id="precio">0</label> TKB
+                    </div>
+                </label>
+
+                <div id="swap-action-container">
+                    <button id="swap-submit" onclick="handleApproveOrSwap()" disabled>Swap</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="spinner" class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+</body>
+
+</html>
