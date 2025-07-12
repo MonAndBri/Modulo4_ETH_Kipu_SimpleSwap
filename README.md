@@ -1,144 +1,148 @@
-# Modulo4_ETH_Kipu_SimpleSwap
-Una aplicación web simple para interactuar con un contrato de intercambio de tokens ERC-20 desplegado en la blockchain. Desarrollado con HTML, CSS y JavaScript puro usando Ethers.js y Metamask.. Incluye también el archivo test del contrato en hardat
 
-# 🌀 SimpleSwap DApp
+🌀 SimpleSwap DApp – Modulo4_ETH_Kipu_SimpleSwap
+A simple web application to interact with an ERC-20 token swap contract deployed on Sepolia blockchain (Ethereum testnet). Built using plain HTML, CSS, and JavaScript with Ethers.js and MetaMask.
+Includes automated smart contract unit tests with Hardhat.
 
-Una aplicación web simple (sin frameworks como React) para interactuar con un contrato de intercambio de tokens ERC-20 desplegado en la blockchain. Desarrollado con HTML, CSS y JavaScript puro usando Ethers.js y Metamask.
+🌐 Overview
+This project allows users to:
 
----
+Connect to MetaMask
 
-## 🌐 Descripción
+View balances of two custom tokens (Token A and Token B)
 
-Este proyecto permite a los usuarios:
+Swap tokens using the SimpleSwap contract
 
-- Conectarse con Metamask
-- Visualizar sus balances de dos tokens personalizados (Token A y Token B)
-- Realizar swaps de tokens usando un contrato `SimpleSwap`
-- Ver precios actuales de intercambio
-- Hacer `mint` de ambos tokens directamente desde la interfaz
+See current exchange rates
 
-Es ideal para probar un entorno de intercambio descentralizado simple con contratos personalizados.
+Mint both tokens directly from the interface
 
----
+It’s ideal for testing a minimal decentralized exchange environment with custom contracts.
 
-## 📁 Estructura del Proyecto
-
-/SimpleSwap-Frontend
+📁 Project Structure
+/frontend
 │
-├── index.html # Interfaz principal
-├── styles.css # Estilos visuales del swap
-├── scripts.js # Lógica principal con interacción Web3
+├── index.html     # Main interface
+├── styles.css     # Swap UI styles
+├── scripts.js     # Web3 logic and contract interaction
 
----
+⚙️ Technologies Used
+HTML5 / CSS3 / JavaScript
 
-## ⚙️ Tecnologías Usadas
+Ethers.js
 
-- HTML5 / CSS3 / JavaScript
-- [Ethers.js](https://docs.ethers.io/)
-- Metamask
-- Contrato `SimpleSwap` en Solidity (fuera de este repo)
+MetaMask
 
----
+SimpleSwap contract (Solidity, included in /contracts)
 
-## 🔧 Requisitos Previos
+🔧 Prerequisites
+MetaMask installed and connected to the correct network (sepolia ethereum testnet)
 
-- Tener [Metamask](https://metamask.io/) instalado y conectado a la red correspondiente (donde estén desplegados los contratos).
-- Servir los archivos con un servidor local para evitar restricciones del navegador al usar Ethers.js y Web3.
+🚀 How to Use
+In your broweser, paste: https://monandbri.github.io/Modulo4_ETH_Kipu_SimpleSwap/
 
----
+<img width="1913" height="955" alt="image" src="https://github.com/user-attachments/assets/8b0b95db-8dfe-4f4b-b17d-17e6d08c1c49" />
 
-## 🚀 Instrucciones de Uso
+Click the Connect button to link your MetaMask account
 
-1. Clonar o descargar este repositorio.
-2. Abrir una terminal y navegar a la carpeta del proyecto.
-3. Correr un servidor local. Ejemplos:
+🔄 Features
+Once connected, you can:
 
-   Con **Python 3**:
-   ```bash
-   python -m http.server
-Con Node.js (si tenés http-server):
+Mint test tokens (TokenA (TKA) & TokenB (TKB)) to your wallet
 
-bash
-Copiar
-Editar
-npx http-server .
-Abrir el navegador en http://localhost:8000 o la URL que indique el servidor.
+Enter an amount of Token A or Token B, then click Mint
 
-Presionar el botón Conectar para vincular tu cuenta de Metamask.
+Get a quote for how many Token B you’ll receive
 
-Ya podés:
+Approve token usage
 
-Hacer mint de tokens
+Execute the token swap
 
-Ingresar una cantidad de Token A
+🧪 Contracts Used
+The frontend is configured to interact with the following contracts (on the sepolia ethereum test network):
 
-Obtener una estimación de cuántos Token B recibirás
+SimpleSwap: 0x57B8085092473392983D8f311903814ecd1ada62
 
-Aprobar el uso de tokens
+TokenA: 0xA142c536A58dc69584C1e345BfAD8c753c2a54C4
 
-Ejecutar el swap
+TokenB: 0x5EBedce1861165D427BEa9D0fc27F99Aa8cD4284
 
-🧪 Contratos Usados
-El frontend está configurado para interactuar con los siguientes contratos en la red:
+Contract ABIs are embedded in scripts.js.
 
-SimpleSwap: 0xE252eBc212d6ebe1ed9b38acd806532707e2e7Ca
+🧪 Manual Testing
+You can test the DApp by:
 
-TokenA: 0x0197Ab9c2E0D54F2CA2DCf9D198c871d2F6231e8
+Changing mint values for Token A and B
 
-TokenB: 0x04C5B3A9e244F9431bFF6D975E4c4c692843f987
+Performing small swaps (e.g., 1, 10, 100)
 
-Las ABIs están embebidas directamente dentro de scripts.js.
+Verifying balance and price changes after each operation
 
-🧪 Test Manual
-Podés testear localmente:
+Trying invalid inputs (e.g., insufficient balance, negative values, etc.)
 
-Cambiando los valores de mint para Token A y B
+✅ Automated Testing with Hardhat
+Automated tests for the SimpleSwap contract are included using Hardhat (SimpleSwapTest.js). Tests cover:
 
-Realizando swaps pequeños (ej.: 1, 10, 100)
+🛠 Contract Deployment and Token Minting
+Verifies successful deployment and token minting
 
-Verificando cambios en balances y precio luego de cada operación
+📊 Liquidity and Reserve Checks
+Ensures correct initial reserves and total liquidity
 
-Probando casos inválidos (saldo insuficiente, valores negativos, etc.)
+➕ Adding & Removing Liquidity
+Tests addLiquidity updates reserves correctly
 
-🧪 Test Automatizados con Hardhat
-Se desarrollaron tests automáticos en Hardhat usando SimpleSwapTest.js para validar la funcionalidad del contrato SimpleSwap. Los tests cubren:
+Tests removeLiquidity returns tokens and reduces reserves
 
-Despliegue y mint de tokens: Se verifica que los tokens se despliegan correctamente y que se puede hacer mint a usuarios.
+💰 Price & OutputAmount Calculations
+Confirms getPrice and getAmountOut return expected values
 
-Consulta de reservas y liquidez: Validación inicial de las reservas y la liquidez total del contrato.
+Tests failure scenarios like expired deadlines and invalid tokens
 
-Agregar y remover liquidez: Tests que aseguran que la función addLiquidity actualiza correctamente reservas y liquidez, y que removeLiquidity devuelve los tokens y reduce las reservas adecuadamente.
+🔁 Token Swaps
+Validates swapExactTokensForTokens performs correct swaps
 
-Cálculo de precios y salida: Se valida que getPrice y getAmountOut funcionen según lo esperado y que se manejen errores en casos inválidos.
+Verifies the TokensSwapped event is emitted properly
 
-Swaps de tokens: Pruebas para asegurar que swapExactTokensForTokens intercambia tokens correctamente y que emite el evento TokensSwapped con valores válidos.
+❗ Reverts & Validations
+Tests transaction reverts when:
 
-Reversiones y validaciones: Se testean casos donde la transacción debe revertir, por ejemplo, si la liquidez es insuficiente, si el deadline está expirado, o si los tokens de entrada o salida no son válidos.
+Liquidity is insufficient
 
-Eventos: Validación de que los eventos LiquidityAdded, LiquidityRemoved y TokensSwapped se emitan con los valores correctos.
+Deadlines are expired
 
-Cómo correr los tests
-Clonar el repositorio del contrato y los tests.
+Invalid input/output tokens are used
 
-Instalar dependencias con:
+📣 Event Emissions
+Checks that LiquidityAdded and TokensSwapped events emit correct values
 
-bash
-Copiar
-Editar
+▶️ Running the Tests
+Clone the contract + test repo
+
+Install dependencies:
 npm install
-Ejecutar los tests con:
 
-bash
-Copiar
-Editar
+Run the tests:
 npx hardhat test
-Revisar la salida para verificar que todos los tests pasen correctamente.
 
-📸 Captura de Pantalla
-Podés agregar una captura de tu interfaz funcionando aquí si deseás.
+Verify coverage:
+npx hardhat coverage
 
-📜 Licencia
-Este proyecto es de uso libre con fines educativos y de prueba. No se recomienda para uso en mainnet sin auditorías.
+You’ll see the test output and confirm all behaviors are working.
 
-🙌 Créditos
-Hecho por [Tu Nombre] como parte de un proyecto de aprendizaje Web3. ¡Gracias por visitar!
+📸 Screenshots
+Output of 'npx hardhat test':
+<img width="1308" height="738" alt="image" src="https://github.com/user-attachments/assets/cd090314-3bd1-41a8-97ab-107eb7ec8349" />
+
+Output of 'npx hardhat coverage':
+<img width="1142" height="919" alt="image" src="https://github.com/user-attachments/assets/5572baad-3656-47bd-a61c-88666a51bccc" />
+
+📜 License
+SPDX-License-Identifier: MIT
+This project is open-source and intended for educational and testing purposes.
+Not recommended for production/mainnet usage without audits.
+
+🙌 Credits
+Created by Mónica Andrea Brito as part of ETH KIPU Developer Ethereum & Talento Tech learning project.
+Thanks for visiting!
+
+
