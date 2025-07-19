@@ -1,4 +1,3 @@
-
 🌀 SimpleSwap DApp – Modulo4_ETH_Kipu_SimpleSwap
 A simple web application to interact with an ERC-20 token swap contract deployed on Sepolia blockchain (Ethereum testnet). Built using plain HTML, CSS, and JavaScript with Ethers.js and MetaMask.
 Includes automated smart contract unit tests with Hardhat.
@@ -50,6 +49,8 @@ Once connected, you can:
 Mint test tokens (TokenA (TKA) & TokenB (TKB)) to your wallet
 
 Enter an amount of Token A or Token B, then click Mint
+
+Enter the amount of Token A (to be swapped for Token B)
 
 Get a quote for how many Token B you’ll receive
 
@@ -113,7 +114,7 @@ Deadlines are expired
 Invalid input/output tokens are used
 
 📣 Event Emissions
-Checks that LiquidityAdded and TokensSwapped events emit correct values
+Checks that LiquidityAdded,TokensSwapped and LiquidityRemoved events emit correct values
 
 ▶️ Running the Tests
 Clone the contract + test repo
@@ -129,12 +130,12 @@ npx hardhat coverage
 
 You’ll see the test output and confirm all behaviors are working.
 
-📸 Screenshots
+📸 Test & Coverage Screenshots
 Output of 'npx hardhat test':
-<img width="1308" height="738" alt="image" src="https://github.com/user-attachments/assets/cd090314-3bd1-41a8-97ab-107eb7ec8349" />
+<img width="997" height="896" alt="image" src="https://github.com/user-attachments/assets/0ff06856-a625-4988-9da3-5d9497fc5ad4" />
 
 Output of 'npx hardhat coverage':
-<img width="1142" height="919" alt="image" src="https://github.com/user-attachments/assets/5572baad-3656-47bd-a61c-88666a51bccc" />
+<img width="883" height="361" alt="image" src="https://github.com/user-attachments/assets/7996056f-c716-412d-9d78-4767f3c180f3" />
 
 📜 License
 SPDX-License-Identifier: MIT
